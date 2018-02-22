@@ -1,3 +1,5 @@
+require 'pry'
+
 class Ride < ActiveRecord::Base
   # write associations here
   belongs_to :attraction
@@ -15,6 +17,7 @@ class Ride < ActiveRecord::Base
     else
       user.tickets -= attraction.tickets
       user.nausea += attraction.nausea_rating 
+      binding.pry
     end
 
   end
