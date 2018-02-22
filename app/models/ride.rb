@@ -17,7 +17,7 @@ class Ride < ActiveRecord::Base
     else
       user.tickets -= attraction.tickets
       user.nausea += attraction.nausea_rating
-      binding.pry
+      user.happines += attraction.happiness_rating
     end
 
   end
