@@ -1,4 +1,4 @@
-<h2> Sign up To Ride! </h2> 
+<h2> Sign up To Ride! </h2>
 
 <%= form_for @user, controller: 'users', action: 'create' do |f|%>
   <%=f.label :name %>
@@ -13,7 +13,7 @@
   <%=f.text_field :height%><br>
   <%=f.label :tickets%>
   <%=f.text_field :tickets%><br>
-  <%= f.label "Admin?"%> 
-  <%= f.checkbox :admin%> 
+  <%= f.label "Admin?"%>
+  <%= f.check_box :admin%> 
   <%=f.submit%>
   <%end%>
