@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
 root 'users#home'
 
-resources :users, only: [:create,:show]
+resources :users, only: [:new, :create,:show]
 
-get '/signup' => 'users#signup'
+
+get '/signin' => 'users#signin'
 
 end
