@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+require 'pry'
 
+class UsersController < ApplicationController
   def home
   end
 
@@ -8,8 +9,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    @current_user = User.find_by(name: params[:name])|| @user = User.new(user_params)
+    if @current_user.authenticate(params[:password])
+      session[:user_id] = @current_user.id
+      redirect_to user_path(@current_user)
+    elsif @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -17,8 +21,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def signin
+    @user = User.new
+  end
   def show
-    @user = User.find(params[:id]) || @user = User.find_by(params[:name])
+    if logged_in?
+      @user = User.find(params[:id])
+    else
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    session.delete :user_id
+    redirect_to '/'
   end
 
   private

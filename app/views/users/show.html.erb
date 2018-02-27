@@ -1,8 +1,13 @@
-
+<%if @user.admin == true %>
+  <h1>ADMIN</h1>
+<%end%>
 <h2> Welcome, <%= @user.name%> </h2> <br>
 
 <h4> Mood: <%= @user.mood%> </h4> <br>
 
-<h4> Height: <%= @user.height %> </h4> <br> 
+<h4> Height: <%= @user.height %> </h4> <br>
 
 <h4> Tickets: <%= @user.tickets %> </h4>
+
+
+<h5><%=link_to "Log Out", logout_path%> </h5>
