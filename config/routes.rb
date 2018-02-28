@@ -8,5 +8,6 @@ resources :attractions, only: [:index, :new, :create, :show]
 get '/signin' => 'users#signin'
 post '/signin' => 'users#create'
 get '/logout' => 'users#destroy'
+patch "/users/:id" => 'users#update'
 
 end

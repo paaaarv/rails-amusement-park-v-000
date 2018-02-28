@@ -32,6 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    @attraction = Attraction.find(params[:user][:attraction_id])
+    binding.pry
+    redirect_to user_path(@user)
+  end
+
   def destroy
     session.delete :user_id
     redirect_to '/'

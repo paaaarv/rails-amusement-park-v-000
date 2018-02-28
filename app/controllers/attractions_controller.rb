@@ -6,7 +6,7 @@ class AttractionsController < ApplicationController
    end
 
    def show
-     @current_user = current_user 
+     @user = current_user 
      @attraction = Attraction.find(params[:id])
    end
 end
