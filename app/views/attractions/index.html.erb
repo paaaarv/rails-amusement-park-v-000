@@ -1,7 +1,9 @@
 <h1> Attractions: </h1>
 
 
-<%=@attractions.each do |attraction|%> 
+<%=@attractions.each do |attraction|%>
   <h2><%=attraction.name%> </h2>
-  <h4><%=link_to "Go on #{attraction.name}", attraction_path(attraction)%> </h4>
+  <h4><%=link_to "Go on #{attraction.name}", attraction_path(attraction)%> </h4><br>
 <%end%>
+
+<h5> <%=link_to "New Attraction", new_attraction_path%> </h5>

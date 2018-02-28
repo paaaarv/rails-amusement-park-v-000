@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   def current_user
     @user = User.find(session[:user_id])
   end
+
+  def admin?(user)
+    @user = user
+    if @user.admin == true
+      return true
+    else
+      return false
+    end
+  end 
 end
