@@ -1,3 +1,10 @@
+
+
+<%if flash[:alert]%>
+  <%= flash[:alert]%>
+<%end%>
+
+
 <%if @user.admin == true %>
   <h1>ADMIN</h1>
 <%end%>
@@ -9,5 +16,5 @@
 
 <h4> Tickets: <%= @user.tickets %> </h4><br> <br>
 
-<h5> <%= link_to "See attractions", attractions_path%> </h5> 
+<h5> <%= link_to "See attractions", attractions_path%> </h5>
 <h5><%=link_to "Log Out", logout_path%> </h5>
