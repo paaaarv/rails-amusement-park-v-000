@@ -6,6 +6,6 @@
   <h4><%=link_to "Go on #{attraction.name}", attraction_path(attraction)%> </h4><br>
 <%end%>
 
-<%if @user.admin == true?%>
+<%if @user.admin%>
   <h5> <%=link_to "New Attraction", new_attraction_path%> </h5>
-<%end%> 
+<%end%>
