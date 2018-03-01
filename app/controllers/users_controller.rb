@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @current_user = User.find_by(name: params[:name])|| @user = User.new(user_params)
-    if @current_user.authenticate(params[:password])
+    @current_user = User.find_by(name: params[:user][:name])
+    if @current_user && @current_user.authenticate(params[:user][:password])
       session[:user_id] = @current_user.id
       redirect_to user_path(@current_user)
-    elsif @user.save
+    elsif @user = User.create(user_params)
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -25,14 +25,6 @@ class UsersController < ApplicationController
   def signin
     @user = User.new
   end
-
-  def login
-    @current_user = User.find_by(name: params[:user][:name])
-    if @current_user.authenticate(params[:password])
-      session[:user_id] = @current_user.id
-      redirect_to user_path(@current_user)
-    end
-  end 
 
   def show
     if logged_in?
