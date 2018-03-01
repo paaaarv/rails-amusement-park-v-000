@@ -9,5 +9,6 @@ get '/signin' => 'users#signin'
 post '/signin' => 'users#create'
 get '/logout' => 'users#destroy'
 patch "/users/:id" => 'users#update'
+patch "/attractions/:id" => 'attractions#update'
 
 end

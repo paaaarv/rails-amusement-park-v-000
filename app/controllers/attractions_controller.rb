@@ -30,8 +30,8 @@ class AttractionsController < ApplicationController
    end
 
    def update
-     @attraction = Attraction.find_by(name: params[:name])
-     @attraction.update
+     @attraction = Attraction.find(params[:id])
+     @attraction.update(attraction_params)
      redirect_to attraction_path(@attraction)
    end
 
